@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        Log.e("eroor","eeeror")
+        Log.d("different log message","not an error")
 
     }
 }
