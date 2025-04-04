@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
+    private lateinit var registrationButton: Button
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         emailEditText = findViewById(R.id.emailEditText)
         passwordEditText = findViewById(R.id.passwordEditText)
         loginButton = findViewById(R.id.loginButton)
+        registrationButton = findViewById(R.id.regPageButton)
         auth = FirebaseAuth.getInstance()
 
         loginButton.setOnClickListener {
@@ -43,6 +45,12 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
             }
         }
+        registrationButton.setOnClickListener {
+            val regBtnn = Intent(this, RegistrationActivity::class.java)
+            startActivity(regBtnn)
+        }
+
+
     }
 
 
@@ -65,8 +73,5 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    fun regButton(view: View) {
-        val regBtnn = Intent(this@LoginActivity, RegistrationActivity::class.java)
-        startActivity(regBtnn)
-    }
+
 }

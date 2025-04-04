@@ -74,7 +74,6 @@
             app:shapeAppearanceOverlay="@style/buttonShape"
             android:text="Login"
             android:layout_marginStart="145dp"
-            android:onClick="loginButton"
             android:layout_marginTop="16dp" />
 
 
