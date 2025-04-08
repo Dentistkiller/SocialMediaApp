@@ -55,5 +55,19 @@
         <item name="android:textSize">25sp</item>
     </style>
 
+
+    <style name="Theme.MyApp.BottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
+        <!-- Height of the BottomNavigationView -->
+        <item name="android:layout_height">100dp</item>
+        <!-- Scroll indicators position (left in this case) -->
+        <item name="android:scrollIndicators">left</item>
+        <!-- Optional: Customize colors, elevation, item styling -->
+        <item name="itemIconTint">@color/blue</item>
+        <item name="itemTextColor">@color/white</item>
+        <item name="android:elevation">8dp</item>
+        <item name="itemBackground">@drawable/ic_launcher_foreground</item>
+    </style>
+
+
     <style name="Theme.SocialMediaApp" parent="Base.Theme.SocialMediaApp" />
 </resources>

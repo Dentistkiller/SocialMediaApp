@@ -35,6 +35,7 @@ class RegistrationActivity : AppCompatActivity() {
         confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText)
         usernameEt = findViewById(R.id.etUserame)
         registerButton = findViewById(R.id.registerButton)
+        loginPageButton = findViewById(R.id.loginPageButton)
         auth = FirebaseAuth.getInstance()
 
         registerButton.setOnClickListener {
