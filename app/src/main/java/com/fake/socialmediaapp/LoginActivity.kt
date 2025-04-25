@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
                     // Login successful, navigate to the next screen
                     var userName = emailEditText.text.toString()
                     val intent = Intent(this, MainActivity::class.java)
-                    intent.putExtra("userName", userName)
+                    intent.putExtra("email", email)
                     Log.d("UsernameCheck","USERNAME is==>"+userName)
                     startActivity(intent)
 

@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <!-- Image Section -->
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
@@ -23,7 +22,6 @@
         android:layout_gravity="center"
         android:scaleType="centerCrop" />
 
-    <!-- Username and Caption Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,14 +45,14 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <!-- Like and Hate Section -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="8dp">
 
-        <!-- Like Button and Count -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +74,7 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <!-- Hate Button and Count -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

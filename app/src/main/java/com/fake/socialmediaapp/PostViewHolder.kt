@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import android.graphics.BitmapFactory
 import android.util.Base64
+import android.widget.Toast
 import com.fake.fakebook.Posts
+import com.google.firebase.firestore.FirebaseFirestore
 import java.io.ByteArrayInputStream
 
 class PostViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -19,6 +21,10 @@ class PostViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val hatesText: TextView = itemView.findViewById(R.id.hates)
     private val likesButton: ImageButton = itemView.findViewById(R.id.likeButton)
     private val hatesButton: ImageButton = itemView.findViewById(R.id.hateButton)
+
+    private val db = FirebaseFirestore.getInstance()
+    private val posts = mutableListOf<Posts>() // An empty list initially
+    private lateinit var adapter: PostAdapter
 
 
     fun bind(post: Posts) {
@@ -68,10 +74,10 @@ class PostViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
             post.isHated = !post.isHated
             if (post.isHated) {
                 post.HatesCount++ // Increment likes
-                hatesButton.setImageResource(R.drawable.baseline_thumb_down_24) // this is your red heart icon
+                hatesButton.setImageResource(R.drawable.baseline_thumb_down_24) // this is your filled in thumbs down
             } else {
                 post.HatesCount-- // Decrement likes
-                hatesButton.setImageResource(R.drawable.baseline_thumb_up_24) // Assume this is your white heart icon
+                hatesButton.setImageResource(R.drawable.thumb_down_not_filled) // this is your empty in thumbs down
             }
             updateLikesDisplay(post)
         }
@@ -80,10 +86,10 @@ class PostViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
             post.isLiked = !post.isLiked
             if (post.isLiked) {
                 post.likesCount++ // Increment likes
-                likesButton.setImageResource(R.drawable.baseline_thumb_up_24) // Assume this is your red heart icon
+                likesButton.setImageResource(R.drawable.baseline_thumb_up_24) // thumb up icon filled
             } else {
                 post.likesCount-- // Decrement likes
-                likesButton.setImageResource(R.drawable.baseline_thumb_up_24) // Assume this is your white heart icon
+                likesButton.setImageResource(R.drawable.baseline_thumb_up_off_alt_24) // thumb up icon empty
             }
             updateLikesDisplay(post)
         }
@@ -94,7 +100,7 @@ class PostViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         if (item.isLiked) {
             likesButton.setImageResource(R.drawable.baseline_thumb_up_24)
         } else {
-            likesButton.setImageResource(R.drawable.baseline_thumb_up_24)
+            likesButton.setImageResource(R.drawable.baseline_thumb_up_off_alt_24)
         }
     }
 
@@ -106,5 +112,6 @@ class PostViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
             hatesButton.setImageResource(R.drawable.baseline_thumb_up_24)
         }
     }
+
 
 }
